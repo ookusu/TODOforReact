@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
 import { InputTodo } from "./conpornents/InputTodo";
-import { Incomlate } from "./conpornents/I";
+import { IncomplateTodo } from "./conpornents/IncomplateTodo";
+import { ComplateTodo } from "./conpornents/ComplateTodo";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
@@ -45,21 +46,13 @@ export const App = () => {
         onChangeTodoText={onChangeTodoText}
         onClickAdd={onClickAdd}
       />
-      <div className="complate-area">
-        <p className="title">完了</p>
-        <ul>
-          {complateTodos.map((todo, i) => {
-            return (
-              <li key={todo}>
-                <div className="list-row">
-                  <p>{todo}</p>
-                  <button onClick={() => onClickBack(i)}>戻す</button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <p style={{ color: "red" }}>消化しろ。</p>
+      <IncomplateTodo
+        incomplateTodos={incomplateTodos}
+        onClickComplate={onClickComplate}
+        onClickDelete={onClickDelete}
+      />
+      <ComplateTodo complateTodos={complateTodos} onClickBack={onClickBack} />
     </>
   );
 };

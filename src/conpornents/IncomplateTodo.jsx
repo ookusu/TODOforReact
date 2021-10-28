@@ -1,6 +1,7 @@
 import React from "react";
 
-export const IncomplateTodo = () => {
+export const IncomplateTodo = (props) => {
+  const { incomplateTodos, onClickComplate, onClickDelete } = props;
   return (
     <div className="incomplate-area">
       <p className="title">未完了</p>
